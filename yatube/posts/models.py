@@ -27,8 +27,8 @@ class Post(models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        related_name='grouped_posts'
-        # выбрал такое имя, т.к.
-        # показалось более очевидным
-        # и не пересекается с 23 строкой
+        related_name='posts'
     )
+
+    class Meta:
+        ordering = ['-pub_date']
