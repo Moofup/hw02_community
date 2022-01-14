@@ -1,4 +1,5 @@
 from django.db import models
+
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -25,5 +26,9 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        related_name='grouped_posts'
+        # выбрал такое имя, т.к.
+        # показалось более очевидным
+        # и не пересекается с 23 строкой
     )
