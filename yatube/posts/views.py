@@ -7,7 +7,10 @@ def index(request):
     title = 'Последние обновления на сайте'
     template = 'posts/index.html'
     max_posts_displayed = 10
-    posts = Post.objects.select_related('author', 'group').order_by('-pub_date')[:max_posts_displayed]
+    posts = Post.objects.select_related(
+        'author',
+        'group'
+    ).order_by('-pub_date')[:max_posts_displayed]
     context = {
         'posts': posts,
         'title': title,
@@ -20,7 +23,8 @@ def group_posts(request, slug):
     title = f'Записи сообщества {group.title}'
     template = 'posts/group_list.html'
     max_posts_displayed = 10
-    posts = group.grouped_posts.all().order_by('-pub_date')[:max_posts_displayed]
+    posts = group.grouped_posts.all(
+    ).order_by('-pub_date')[:max_posts_displayed]
     context = {
         'group': group,
         'posts': posts,
