@@ -5,6 +5,7 @@ from .models import Group, Post
 
 max_posts_displayed = 10
 
+
 def index(request):
     title = 'Последние обновления на сайте'
     template = 'posts/index.html'
