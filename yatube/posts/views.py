@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-
 from .models import Group, Post
 
 
-max_posts_displayed = 10
+MAX_POST_DISPLAYED = 10
 
 
 def index(request):
@@ -12,7 +11,7 @@ def index(request):
     posts = Post.objects.select_related(
         'author',
         'group'
-    )[:max_posts_displayed]
+    )[:MAX_POST_DISPLAYED]
     context = {
         'posts': posts,
         'title': title,
@@ -25,7 +24,7 @@ def group_posts(request, slug):
     title = f'Записи сообщества {group.title}'
     template = 'posts/group_list.html'
     posts = group.posts.all(
-    )[:max_posts_displayed]
+    )[:MAX_POST_DISPLAYED]
     context = {
         'group': group,
         'posts': posts,

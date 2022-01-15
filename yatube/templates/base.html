@@ -13,14 +13,15 @@
     <meta name="msapplication-TileColor" content="#000">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %} Базовый заголовок {% endblock %}</title>
+    <title>{% block title %} Базовый заголовок {% endblock title %}</title>
   </head>
 <body>
   {% include 'includes/header.html' %}
     <main>
       <div class="container py-5">
         {% block content %}
-        {% endblock %}
+
+        {% endblock content %}
       </div>
     </main>
   {% include 'includes/footer.html' %}
